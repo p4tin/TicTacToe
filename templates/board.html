@@ -1,0 +1,99 @@
+{{template "header" . }}
+{{template "navbar" . }}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-4">
+            <div class="form-signin mg-btm">
+                <h3 class="heading-desc">
+                    TicTacToe<hr/></h3>
+                <div class="row">
+                    <div class="col-md-5 col-md-offset-2">Player</div><div class="col-md-5">{{ .user.Name }}</div>
+                    <div class="col-md-5 col-md-offset-2">Wins</div><div class="col-md-5">{{ .user.GameData.Wins }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 col-md-offset-2">Losses</div><div class="col-md-5">{{ .user.GameData.Losses }}</div>
+                    <div class="col-md-5 col-md-offset-2">Ties</div><div class="col-md-5">{{ .user.GameData.Ties }}</div>
+                </div>
+                <!--<form action="/logout" role="form" method="post"><button name="start" type="submit" class="btn btn-danger btn-sm">Logout</button></form>-->
+
+                <!--<div class="social-box">-->
+                <!--<div class="row mg-btm">-->
+                <!--<div class="col-md-12">-->
+                <!--<a href="#" class="btn btn-primary btn-block">-->
+                <!--<i class="icon-facebook"></i>    Login with Facebook-->
+                <!--</a>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row">-->
+                <!--<div class="col-md-12">-->
+                <!--<a href="#" class="btn btn-info btn-block" >-->
+                <!--<i class="icon-twitter"></i>    Login with Twitter-->
+                <!--</a>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <div class="main">
+                    <table class="table table-bordered" style="width:200px; margin-left: 55px; margin-top: -25px">
+                        <tbody>
+                        <tr>
+                            <td><form action="/move" role="form" method="post"><button name="moveButton" value="1" id="1" type="submit" class="btn btn-primary btn-lg">
+                                {{ index .user.GameData.Board 0 }}
+                            </button></form></td>
+                            <td><form action="/move" role="form" method="post"><button name="moveButton" value="2" id="2" type="submit" class="btn btn-primary btn-lg">
+                                {{ index .user.GameData.Board 1 }}
+                            </button></form></td>
+                            <td><form action="/move" role="form" method="post"><button name="moveButton" value="3" id="3" type="submit" class="btn btn-primary btn-lg">
+                                {{ index .user.GameData.Board 2 }}
+                            </button></form></td>
+                        </tr>
+                        <tr>
+                            <td><form action="/move" role="form" method="post"><button name="moveButton" value="4" id="4" type="submit" class="btn btn-primary btn-lg">
+                                {{ index .user.GameData.Board 3 }}
+                            </button></form></td>
+                            <td><form action="/move" role="form" method="post"><button name="moveButton" value="5" id="5" type="submit" class="btn btn-primary btn-lg">
+                                {{ index .user.GameData.Board 4 }}
+                            </button></form></td>
+                            <td><form action="/move" role="form" method="post"><button name="moveButton" value="6" id="6" type="submit" class="btn btn-primary btn-lg">
+                                {{ index .user.GameData.Board 5 }}
+                            </button></form></td>
+                        </tr>
+                        <tr>
+                            <td><form action="/move" role="form" method="post"><button name="moveButton" value="7" id="7" type="submit" class="btn btn-primary btn-lg">
+                                {{ index .user.GameData.Board 6 }}
+                            </button></form></td>
+                            <td><form action="/move" role="form" method="post"><button name="moveButton" value="8" id="8" type="submit" class="btn btn-primary btn-lg">
+                                {{ index .user.GameData.Board 7 }}
+                            </button></form></td>
+                            <td><form action="/move" role="form" method="post"><button name="moveButton" value="9" id="9" type="submit" class="btn btn-primary btn-lg">
+                                {{ index .user.GameData.Board 8 }}
+                            </button></form></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="login-footer">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <div class="left-section">
+                                <!--<a href="">Forgot your password?</a>-->
+                                <!--<a href="/login">Have an Account? Login</a>-->
+                            </div>
+                        </div>
+                        {{if .ingame }}
+                        <div class="col-xs-6 col-md-6 pull-right">
+                            <button type="submit" class="btn btn-large btn-danger pull-right">Quit Game</button>
+                        </div>
+                        {{else}}
+                        <div class="col-xs-6 col-md-6 pull-right">
+                        <form action="/start" role="form" method="post"><button name="start" type="submit" class="btn btn-success btn-large pull-right">Start Game</button></form>
+                        </div>
+                        {{end}}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{template "footer" . }}
+
